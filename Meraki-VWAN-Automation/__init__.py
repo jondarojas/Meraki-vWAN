@@ -857,11 +857,6 @@ def main(MerakiTimer: func.TimerRequest) -> None:
                     logging.info(f"MX device not found in {netname}, skipping network.")
                     continue
 
-                # check if appliance is on 15 firmware
-                if not appliance.is_firmware_compliant():
-                    logging.info(f"MX device for {netname} not running v15 firmware, skipping network.")
-                    continue  # if box isnt firmware skip to next network
-
                 # gets branch local vpn subnets
                 va = MerakiConfig.sdk_auth.appliance.getNetworkApplianceVpnSiteToSiteVpn(network_info)
 
